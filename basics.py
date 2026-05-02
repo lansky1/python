@@ -56,7 +56,7 @@
 # Unordered Mapping - use ordereddict for ordered
 # Keys should be hashable type
 # strings, integers, tuples, mixed keys
-# cannot use lists, dicts or sets 
+# cannot use lists, dicts or sets - since they are mutable containers
 # dict = {1: 'hello', 2: 'bye'}
 # print(type(dict[1]).__name__)
 
