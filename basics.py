@@ -46,6 +46,19 @@
 
 # Lists in Python
 # TODO: How is a list implemented internally?
-example_list = [10, "hello", 200.3]
+# example_list = [10, "hello", 200.3]
 # print(example_list)
-print(example_list[1][3])
+# print(example_list[1][3])
+# print([10, "hello", 200.3])
+
+# Dictionaries
+# mutable
+# Unordered Mapping - use ordereddict for ordered
+# Keys should be hashable type
+# strings, integers, tuples, mixed keys
+# cannot use lists, dicts or sets 
+# dict = {1: 'hello', 2: 'bye'}
+# print(type(dict[1]).__name__)
+
+# Tuples
+# Immutable
