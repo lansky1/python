@@ -62,3 +62,24 @@
 
 # Tuples
 # Immutable
+
+# Sets
+# unordered
+# unique elements
+# Like this is a hashset, while dicts are hashmaps
+# example_list = [1,1,1,2,2,2,3,3,3]
+# hashset = set(example_list) # can pass any iterable
+# list, tuple, string, set, range
+# passing dict would discard values, keep only keys
+# hashset.add(3)
+# hashset.add(4)
+# hashset.add(3) # this doesnt throw an error
+# silently rejects the duplicates
+# print(hashset)
+# hashset = set({1:'hello',2:'world'}.values())
+# print(hashset) # order not guaranteed
+# hashset = set({1:'hello',2:'world'}.items())
+# print(hashset) # tuples are hashable
+
+# Booleans
+# True, False, None
