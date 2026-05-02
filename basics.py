@@ -32,10 +32,10 @@
 # print("The {2} {1} {0}".format("fox", "brown", "quick"))
 # print("The {q} {b} {f}".format(f="fox", b="brown", q="quick"))
 # print("The {} {} {}".format(f="fox", b="brown", q="quick"))
-# {} are postitional placeholders. f=, b= are keyword arguments. 
+# {} are postitional placeholders. f=, b= are keyword arguments.
 # Both are incompatible.
 
-# Float Manipulation 
+# Float Manipulation
 # value:width.precision f
 # print("The answer is {:1.1f}".format(100/77))
 
@@ -83,3 +83,23 @@
 
 # Booleans
 # True, False, None
+
+# Useful Operators
+
+# Range
+# range(length)
+# range(start, stop, step)
+# range is a generator not a container. It doesn't store the list.
+
+# Enumerate
+# for item in enumerate(word)
+# returns a tuple with the (index, element)
+
+# Zip
+# pair up same index as tuples
+# list1 = [1,2,3] # an extra element would be discarded
+# list2 = ['a','b','c']
+# for item in zip(list1, list2):
+# print(item)
+# print(list(zip(list1,list2))) # can be a list, set, tuple, dict
+
