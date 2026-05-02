@@ -103,3 +103,14 @@
 # print(item)
 # print(list(zip(list1,list2))) # can be a list, set, tuple, dict
 
+# List Comprehensions
+# my_list = [x for x in "hello"]
+# print(my_list)
+# my_second_list = [num**2 for num in range(0, 11)]
+# print(my_second_list)
+# my_third_list = [num for num in range(11) if num % 2 == 0]
+# print(my_third_list)
+# my_fourth_list = [num if num % 2 == 0 else "ODD" for num in range(11)]
+# print(my_fourth_list)
+# my_fifth_list = [x * y for x in [2, 4, 6] for y in [1, 2, 3]]
+# print(my_fifth_list)
