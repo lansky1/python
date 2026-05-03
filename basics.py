@@ -20,8 +20,10 @@
 # 001^110 = 111
 
 # Strings
-# my_string = "Hello"~
+# my_string = "Hello"
+# print(my_string[:2])
 # print(my_string[::-2]) #Slice
+# my_string[1:-1] # skips the first and last character
 # print(my_string[5])
 # print("Hello World"[8])
 # letter = 'a'
@@ -42,7 +44,7 @@
 # F Strings
 # name = "John"
 # print(f"Hello, my name is {name}")
-# Reference: https://pyformat.info
+# Reference:
 
 # Lists in Python
 # TODO: How is a list implemented internally?
@@ -114,3 +116,24 @@
 # print(my_fourth_list)
 # my_fifth_list = [x * y for x in [2, 4, 6] for y in [1, 2, 3]]
 # print(my_fifth_list)
+
+# Help functions
+# help(list.append)
+# Reference: https://docs.python.org/3/
+
+# Function: reusable block of code called directly by name.
+# Method: function attached to an object or class, called using dot notation.
+
+# Repeated string concatenation (+=) is O(n²) in Python due to immutability.
+
+# print(*values, sep=' ', end='\n')
+
+# *args and **kwargs (arguments and keyword arguments)
+
+# def my_func(*args):
+# return sum(args)
+# the start is representative, not the args keyword (just by convention we write it as such)
+
+# print(my_func(2,3))
+# print(sum(2,3)) # sum expects a iterable
+
