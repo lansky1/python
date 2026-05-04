@@ -20,3 +20,10 @@ def pos_neg(a, b, negative):
         )
         else False
     )
+
+
+# better way: Handles the special case first, then uses != to mean opposite signs.
+def pos_neg_1(a, b, negative):
+    if negative:
+        return a < 0 and b < 0
+    return (a < 0) != (b < 0)

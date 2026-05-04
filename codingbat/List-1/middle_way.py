@@ -12,3 +12,8 @@
 
 def middle_way(a, b):
     return [a[1], b[1]]
+
+
+# better way: Computes the middle index instead of hard-coding position 1.
+def middle_way_1(a, b):
+    return [a[len(a) // 2], b[len(b) // 2]]

@@ -12,3 +12,8 @@
 
 def first_last6(nums):
     return True if (nums[0] == 6 or nums[-1] == 6) else False
+
+
+# better way
+def first_last6_1(nums):
+    return nums[0] == 6 or nums[-1] == 6

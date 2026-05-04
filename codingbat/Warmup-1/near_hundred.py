@@ -12,3 +12,8 @@
 
 def near_hundred(n):
     return True if (abs(n - 100) <= 10 or abs(n - 200) <= 10) else False
+
+
+# better way
+def near_hundred_1(n):
+    return abs(n - 100) <= 10 or abs(n - 200) <= 10

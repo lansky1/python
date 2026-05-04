@@ -12,3 +12,8 @@
 
 def not_string(str):
     return str if (str[0:3] == "not") else "not " + str
+
+
+# better way: startswith() states the prefix check more clearly than manual slicing.
+def not_string_1(s):
+    return s if s.startswith("not") else "not " + s

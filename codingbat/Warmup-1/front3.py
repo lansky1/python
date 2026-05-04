@@ -14,3 +14,8 @@
 def front3(str):
     front = str if len(str) < 3 else str[0:3]
     return 3 * front
+
+
+# better way: Slicing handles short strings, so no length check is needed.
+def front3_1(s):
+    return s[:3] * 3

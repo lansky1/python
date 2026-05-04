@@ -13,3 +13,8 @@
 
 def monkey_trouble(a_smile, b_smile):
     return not (a_smile ^ b_smile)
+
+
+# better way: Equality expresses that both booleans must have the same value.
+def monkey_trouble_1(a_smile, b_smile):
+    return a_smile == b_smile

@@ -13,3 +13,8 @@
 
 def parrot_trouble(talking, hour):
     return talking and (hour < 7 or hour > 20)
+
+
+# better way
+def parrot_trouble_1(talking, hour):
+    return talking and not (7 <= hour <= 20)

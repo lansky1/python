@@ -13,3 +13,8 @@
 
 def front_times(str, n):
     return n * (str if (len(str) < 3) else str[:3])
+
+
+# better way: Slicing handles strings shorter than 3, then multiplication repeats it.
+def front_times_1(s, n):
+    return s[:3] * n

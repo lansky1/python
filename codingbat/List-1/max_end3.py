@@ -27,14 +27,14 @@ def max_end3_2(nums):
     return nums
 
 
-# Approach 2
+# Approach 3
 def max_end3_3(nums):
     val = max(nums[0], nums[-1])
     nums[:] = [val, val, val]
     return nums
 
 
-# Approach 2
+# Approach 4
 def max_end3_4(nums):
     val = max(nums[0], nums[-1])
     return [val, val, val]

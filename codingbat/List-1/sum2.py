@@ -18,3 +18,8 @@ def sum2(nums):
         return nums[0]
     else:
         return nums[0] + nums[1]
+
+
+# better way: Slices the first two items safely, then lets sum() handle empty or short lists.
+def sum2_1(nums):
+    return sum(nums[:2])
