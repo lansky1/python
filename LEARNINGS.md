@@ -20,3 +20,8 @@ def combo_string(a, b):
 ```
 print([[X,Y,Z] for X in range(x+1) for Y in range(y+1) for Z in range(z+1) if X+Y+Z != n])
 ```
+
+```
+def count_evens(nums):
+  return sum([1 for num in nums if num%2==0])
+```
