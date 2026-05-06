@@ -10,3 +10,13 @@
   - `value[::-1]` means traverse in reverse.
   - Negative indexes count from the end, so they are useful for last items or slicing from the back.
   - Slicing is safe when the value is shorter than expected, so separate length checks are often unnecessary.
+
+```
+def combo_string(a, b):
+  short, long = (a, b) if len(a) < len(b) else (b, a)
+  return short + long + short
+```
+
+```
+print([[X,Y,Z] for X in range(x+1) for Y in range(y+1) for Z in range(z+1) if X+Y+Z != n])
+```
