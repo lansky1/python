@@ -41,6 +41,28 @@ def combo_string(a, b):
   return short + long + short
 ```
 
+## Scope And Global Variables
+
+- Python looks for variable names using the LEGB rule:
+  - `Local`: names inside the current function.
+  - `Enclosing`: names in outer functions when functions are nested.
+  - `Global`: names at the top level of the current file/module.
+  - `Built-in`: names Python provides automatically, like `print`, `len`, and `sum`.
+- A variable assigned inside a function is local to that function by default.
+- The `global` keyword lets a function reassign a variable from the global/module scope.
+- The `nonlocal` keyword lets a nested function reassign a variable from an enclosing function scope.
+- Avoid using `global` when possible because it makes functions depend on outside state and can make code harder to reason about.
+- Prefer returning the new value from the function and assigning it back outside the function.
+
+```python
+count = 0
+
+def increase_count(count):
+  return count + 1
+
+count = increase_count(count)
+```
+
 ## List Comprehensions
 
 - List comprehensions can build and filter lists in one expression.
