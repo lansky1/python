@@ -54,6 +54,68 @@ def count_evens(nums):
   return sum([1 for num in nums if num%2==0])
 ```
 
+## Common Functions And Methods To Know
+
+- `enumerate()` gives both the index and the value while looping.
+- `zip()` loops over multiple sequences together and pairs related items.
+- `sum()` adds values and can also count truthy results.
+- `min()` and `max()` find the smallest or largest item, and become more powerful with `key=`.
+- `any()` checks if at least one item is true.
+- `all()` checks if every item is true.
+- `sorted()` returns a new sorted list.
+- `.sort()` sorts a list in place.
+- `reversed()` loops through a sequence backwards without manually managing indexes.
+- `map()` transforms every item. It is useful when one existing function should be applied to every value.
+- `filter()` keeps only the items that pass a condition.
+- List comprehensions are often clearer than `map()` and `filter()` when the logic is short.
+- `set()` removes duplicates and gives fast membership checks.
+- `dict()` can build dictionaries from pairs or keyword arguments.
+- `isinstance()` checks whether a value belongs to a type. Prefer it over comparing `type()` directly.
+- `.get()` safely reads a dictionary key with an optional default value.
+- `.items()` loops through dictionary keys and values together.
+- `.keys()` gets dictionary keys.
+- `.values()` gets dictionary values.
+- `.update()` adds or replaces multiple dictionary entries.
+- `.append()` adds one item to the end of a list.
+- `.extend()` adds many items to the end of a list.
+- `.insert()` adds an item at a specific list position.
+- `.pop()` removes and returns an item from a list or dictionary.
+- `.remove()` removes the first matching value from a list.
+- `.count()` counts how many times a value appears.
+- `.index()` finds the first position of a value.
+- `.split()` breaks a string into a list.
+- `.join()` combines strings from a list or other iterable.
+- `.strip()` removes whitespace or selected characters from the start and end.
+- `.replace()` returns a string with text replaced.
+- `.startswith()` and `.endswith()` check string prefixes and suffixes.
+- `.find()` returns the first matching index, or `-1` if not found.
+- `.lower()` and `.upper()` normalize text casing.
+- `.add()` adds one item to a set.
+- `.discard()` removes an item from a set without error if it is missing.
+- `.union()`, `.intersection()`, and `.difference()` compare sets.
+- `collections.Counter` counts how many times each value appears.
+- `collections.defaultdict` gives missing dictionary keys a default value automatically. Useful for grouping and counting.
+- `collections.deque` is useful for queues because adding or removing from both ends is fast.
+- `heapq.heappush()` and `heapq.heappop()` help when repeatedly needing the smallest item.
+- `itertools.product()` creates all combinations from multiple iterables.
+- `itertools.combinations()` creates unique groups where order does not matter.
+- `itertools.permutations()` creates arrangements where order does matter.
+- `itertools.chain()` treats multiple iterables as one continuous iterable.
+- `itertools.groupby()` groups neighboring matching items. Sort first when you need all equal values grouped together.
+- `functools.lru_cache` remembers function results. Useful for recursive problems with repeated work.
+- `operator.itemgetter()` is useful with `key=` when sorting or selecting tuple/list/dictionary values.
+- `abs()` returns the positive distance from zero.
+- `round()` rounds numbers.
+- `divmod()` gives quotient and remainder together.
+- `pow()` can calculate powers, and with three arguments can do modular exponentiation.
+- `chr()` converts a Unicode number to a character.
+- `ord()` converts a character to its Unicode number.
+- `.setdefault()` creates a missing dictionary key with a default value, though `defaultdict` is often cleaner.
+- `.copy()` makes a shallow copy of a list, dictionary, or set.
+- `.clear()` removes all items from a list, dictionary, or set.
+- `.isdigit()`, `.isalpha()`, and `.isalnum()` check what kind of characters a string contains.
+- `.casefold()` is stronger than `.lower()` for case-insensitive text comparisons.
+
 ## Loops
 
 - A `for` loop controls its next value automatically. Use `while` when you need to manually change the loop index inside the loop.
