@@ -34,6 +34,7 @@ def double_char(s):
 ## Conditional Expressions
 
 - A conditional expression can choose between two values inline.
+- The walrus operator `:=` assigns a value inside an expression. Use it sparingly, mainly when it avoids repeating the same calculation or lookup.
 
 ```python
 def combo_string(a, b):
@@ -78,6 +79,7 @@ def count_evens(nums):
 
 ## Common Functions And Methods To Know
 
+- `print()` can receive multiple values, including variables. By default, it prints them on the same line separated by spaces. Use `sep=` to change the separator and `end=` to change what comes after the print.
 - `enumerate()` gives both the index and the value while looping.
 - `zip()` loops over multiple sequences together and pairs related items.
 - `sum()` adds values and can also count truthy results.
@@ -104,6 +106,7 @@ def count_evens(nums):
 - `.keys()` gets dictionary keys.
 - `.values()` gets dictionary values.
 - `.update()` adds or replaces multiple dictionary entries.
+- `dict.fromkeys()` creates a dictionary from keys, giving each key the same starting value. If no value is passed, the value is `None`. Duplicate keys are removed because dictionary keys must be unique.
 - `.append()` adds one item to the end of a list.
 - `.extend()` adds many items to the end of a list.
 - `.insert()` adds an item at a specific list position.
@@ -118,6 +121,8 @@ def count_evens(nums):
 - `.startswith()` and `.endswith()` check string prefixes and suffixes.
 - `.find()` returns the first matching index, or `-1` if not found.
 - `.lower()` and `.upper()` normalize text casing.
+- `.islower()` checks whether the cased characters in a string are lowercase.
+- `.isupper()` checks whether the cased characters in a string are uppercase.
 - `.add()` adds one item to a set.
 - `.discard()` removes an item from a set without error if it is missing.
 - `.union()`, `.intersection()`, and `.difference()` compare sets.
@@ -130,8 +135,10 @@ def count_evens(nums):
 - `itertools.permutations()` creates arrangements where order does matter.
 - `itertools.chain()` treats multiple iterables as one continuous iterable.
 - `itertools.groupby()` groups neighboring matching items. Sort first when you need all equal values grouped together.
+- `functools.reduce()` combines an iterable into one final value by repeatedly applying a function.
 - `functools.lru_cache` remembers function results. Useful for recursive problems with repeated work.
 - `operator.itemgetter()` is useful with `key=` when sorting or selecting tuple/list/dictionary values.
+- `operator.mul()` is multiplication as a function. Useful with `map()` or `functools.reduce()` when a function is needed instead of the `*` operator.
 - `abs()` returns the positive distance from zero.
 - `round()` rounds numbers.
 - `divmod()` gives quotient and remainder together.
