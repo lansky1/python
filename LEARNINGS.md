@@ -68,8 +68,14 @@ def count_evens(nums):
 - `map()` transforms every item. It is useful when one existing function should be applied to every value.
 - `filter()` keeps only the items that pass a condition.
 - List comprehensions are often clearer than `map()` and `filter()` when the logic is short.
+- `list()` converts an iterable into a list.
+- `tuple()` converts an iterable into a tuple.
 - `set()` removes duplicates and gives fast membership checks.
 - `dict()` can build dictionaries from pairs or keyword arguments.
+- `str()` converts a value into a string.
+- `int()` converts compatible values into integers.
+- `float()` converts compatible values into decimal numbers.
+- `bool()` converts a value into `True` or `False` based on truthiness.
 - `isinstance()` checks whether a value belongs to a type. Prefer it over comparing `type()` directly.
 - `.get()` safely reads a dictionary key with an optional default value.
 - `.items()` loops through dictionary keys and values together.
