@@ -35,6 +35,7 @@ def double_char(s):
 
 - A conditional expression can choose between two values inline.
 - The walrus operator `:=` assigns a value inside an expression. Use it sparingly, mainly when it avoids repeating the same calculation or lookup.
+- In tuple assignment, the complete right-hand side is evaluated before any left-hand side assignment happens. If one assigned value depends on another new value, store the new value in a temporary variable first.
 
 ```python
 def combo_string(a, b):
@@ -80,6 +81,14 @@ def count_evens(nums):
 ## Common Functions And Methods To Know
 
 - `print()` can receive multiple values, including variables. By default, it prints them on the same line separated by spaces. Use `sep=` to change the separator and `end=` to change what comes after the print.
+- In Jupyter notebooks, `clear_output()` from `IPython.display` clears the previous cell output. This is useful when updating output repeatedly, such as inside a loop.
+
+```python
+from IPython.display import clear_output
+
+clear_output()
+```
+
 - `enumerate()` gives both the index and the value while looping.
 - `zip()` loops over multiple sequences together and pairs related items.
 - `sum()` adds values and can also count truthy results.
