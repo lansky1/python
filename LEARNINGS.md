@@ -65,6 +65,29 @@ def increase_count(count):
 count = increase_count(count)
 ```
 
+## Modules And Script Entry Points
+
+- Every Python file has a `__name__` value.
+- When a file is run directly, Python sets `__name__` to `"__main__"`.
+- When a file is imported, `__name__` becomes the module's name instead.
+- Use `if __name__ == "__main__":` to run code only during direct execution, not during import.
+- This helps organize code so functions/classes stay reusable, while script-specific code stays in one clear entry point.
+- Keep reusable code outside this block, such as functions, classes, and constants.
+- Keep script-only code inside this block, such as calling `main()`, user input, printing final output, demos, file reading, or command-line argument handling.
+- This prevents another file from accidentally starting the whole program just because it imported one function.
+
+```python
+def greet(name):
+  return f"Hello, {name}"
+
+def main():
+  name = input("Name: ")
+  print(greet(name))
+
+if __name__ == "__main__":
+  main()
+```
+
 ## List Comprehensions
 
 - List comprehensions can build and filter lists in one expression.
