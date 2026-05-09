@@ -88,14 +88,16 @@ while game_on:
     print_board()
 
     # How can a game end?
-    # All slots are filled
-    if len(occupied_positions) == 9:
-        print("Game drawn!\n")
-        game_on = False
+
     # Someone wins
     for condition in winning_conditions:
         if condition.issubset(set(occupied_per_player[current_turn])):
             print("Game over, {} Wins!".format(current_turn))
             game_on = False
+
+    # All slots are filled
+    if len(occupied_positions) == 9:
+        print("Game drawn!\n")
+        game_on = False
 
     current_turn = "Player 2" if current_turn == "Player 1" else "Player 1"
