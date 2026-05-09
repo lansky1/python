@@ -178,3 +178,13 @@ def cat_dog(s):
       count_dog += 1
   return count_cat == count_dog
 ```
+
+## Subset 
+
+```python
+# Method
+{1, 2, 3}.issubset({1, 2, 3, 4, 5})  # True
+
+# Operator
+{1, 2, 3} <= {1, 2, 3, 4, 5}         # True
+```

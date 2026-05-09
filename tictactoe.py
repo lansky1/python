@@ -3,6 +3,17 @@ board = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]]
 occupied_positions = []
 current_turn = ""
 game_on = True
+winning_conditions = [
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+    {1, 4, 7},
+    {2, 5, 8},
+    {3, 6, 9},
+    {1, 5, 9},
+    {3, 5, 7},
+]
+occupied_per_player = {"Player 1": [], "Player 2": []}
 
 
 # Functions
@@ -70,12 +81,11 @@ while game_on:
         continue
 
     occupied_positions.append(pos)
+    occupied_per_player[current_turn].append(pos)
 
     board[(pos - 1) // 3][(pos - 1) % 3] = player_dict[current_turn]
 
     print_board()
-
-    current_turn = "Player 2" if current_turn == "Player 1" else "Player 1"
 
     # How can a game end?
     # All slots are filled
@@ -83,3 +93,9 @@ while game_on:
         print("Game drawn!\n")
         game_on = False
     # Someone wins
+    for condition in winning_conditions:
+        if condition.issubset(set(occupied_per_player[current_turn])):
+            print("Game over, {} Wins!".format(current_turn))
+            game_on = False
+
+    current_turn = "Player 2" if current_turn == "Player 1" else "Player 1"
