@@ -153,6 +153,8 @@ clear_output()
 - `.startswith()` and `.endswith()` check string prefixes and suffixes.
 - `.find()` returns the first matching index, or `-1` if not found.
 - `.lower()` and `.upper()` normalize text casing.
+- `.capitalize()` makes the first character uppercase and the rest lowercase.
+- `.title()` makes the first character of each word uppercase.
 - `.islower()` checks whether the cased characters in a string are lowercase.
 - `.isupper()` checks whether the cased characters in a string are uppercase.
 - `.add()` adds one item to a set.
@@ -212,7 +214,7 @@ def cat_dog(s):
 {1, 2, 3} <= {1, 2, 3, 4, 5}         # True
 ```
 
-### Classes
+## Classes
 
 Python's built-in types are classes but use lowercase names. This violates PEP 8's convention that classes should use PascalCase (CapWords).
 
@@ -220,7 +222,7 @@ Python's built-in types are classes but use lowercase names. This violates PEP 8
 
 - In Python 3, `class Dog:` and `class Dog():` are identical. 
 
-#### Permission Scope
+### Permission Scope
 
 Python has no enforced access control. It's convention-based:
 
@@ -231,3 +233,23 @@ Python has no enforced access control. It's convention-based:
 | `__species` | Name mangling, harder to access | Partially |
 
 `__species` gets mangled to `_Dog__species` — still accessible, just deliberately inconvenient. Python's position is explicit: **convention over enforcement**. There is no true `private`.
+
+#### Console execution inside shell
+
+```python
+import os
+os.system("pylint test.py")
+```
+
+```python
+import subprocess
+
+subprocess.run(["pylint", "test.py", "-r", "y"])
+```
+
+```python
+import subprocess
+import sys
+
+subprocess.run([sys.executable, "-m", "pylint", "test.py", "-r", "y"])
+```
