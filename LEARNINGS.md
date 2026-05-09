@@ -188,3 +188,23 @@ def cat_dog(s):
 # Operator
 {1, 2, 3} <= {1, 2, 3, 4, 5}         # True
 ```
+
+### Classes
+
+Python's built-in types are classes but use lowercase names. This violates PEP 8's convention that classes should use PascalCase (CapWords).
+
+**Reference:** [PEP 8 — Class Names](https://peps.python.org/pep-0008/#class-names)
+
+- In Python 3, `class Dog:` and `class Dog():` are identical. 
+
+#### Permission Scope
+
+Python has no enforced access control. It's convention-based:
+
+| Naming | Convention | Enforced? |
+|---|---|---|
+| `species` | Public | No |
+| `_species` | Internal, don't touch from outside | No |
+| `__species` | Name mangling, harder to access | Partially |
+
+`__species` gets mangled to `_Dog__species` — still accessible, just deliberately inconvenient. Python's position is explicit: **convention over enforcement**. There is no true `private`.
