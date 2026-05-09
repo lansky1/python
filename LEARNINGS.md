@@ -142,7 +142,7 @@ clear_output()
 - `.append()` adds one item to the end of a list.
 - `.extend()` adds many items to the end of a list.
 - `.insert()` adds an item at a specific list position.
-- `.pop()` removes and returns an item from a list or dictionary.
+- `.pop()` removes and returns an item from a list or dictionary. If no index is provided, it removes the last item by default.
 - `.remove()` removes the first matching value from a list.
 - `.count()` counts how many times a value appears.
 - `.index()` finds the first position of a value.
