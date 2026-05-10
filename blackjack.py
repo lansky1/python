@@ -84,20 +84,16 @@ def show_table(player_cards, dealer_cards, reveal_dealer=False):
             print(card)
         print(f"Dealer total: {dealer_sum}")
     else:
-        print("Hidden card")
+        print("Face-down card")
         print(f"Dealer showing: {dealer_cards[0].value}")
     print()
 
 
+# ace being one condition
 if __name__ == "__main__":
     player = Player("Player", 100)
 
     print(f"The table is open. Welcome to Blackjack, {player.name}.")
-
-    # Dealer plays (17 condition), ace being one condition
-    # Decide winner
-    # Update money
-    # Ask for new bet amount, or quit
 
     playing = True
 
@@ -116,8 +112,12 @@ if __name__ == "__main__":
             except ValueError:
                 print("The dealer raises an eyebrow. That's not a valid wager.")
             else:
-                if round_bet <= player.bank:
+                if 0 < round_bet <= player.bank:
                     wager_accepted = True
+                elif round_bet <= 0:
+                    print(
+                        "The dealer keeps the cards still. Put real chips on the felt."
+                    )
                 else:
                     print(
                         "The dealer taps the table. You don't have enough chips for that wager."
@@ -135,6 +135,9 @@ if __name__ == "__main__":
         show_table(player_cards, dealer_cards, False)
         # player_sum = sum(card.value for card in player_cards)
         # dealer_sum = sum(card.value for card in dealer_cards)
+
+        player_busted = False
+        dealer_busted = False
 
         # Player plays
         player_turn = True
@@ -154,6 +157,7 @@ if __name__ == "__main__":
                     if player_sum > 21:
                         print("You went over 21. The table takes the round.")
                         player.go_bust(round_bet)
+                        player_busted = True
                         player_turn = False
 
                 elif player_choice == "stand":
@@ -164,6 +168,59 @@ if __name__ == "__main__":
                 else:
                     print("The dealer taps the felt. Choose 'hit' or 'stand'.")
 
+        if not player_busted:
+            print("The dealer turns over the hidden card.")
+            show_table(player_cards, dealer_cards, True)
+
+            dealer_turn = True
+            dealer_sum = sum(card.value for card in dealer_cards)
+
+            while dealer_turn:
+                if dealer_sum < 17:
+                    print("The dealer takes another card.")
+                    new_card = deck.deal()
+                    dealer_cards.append(new_card)
+                    print(f"The dealer draws the {new_card}.")
+                    show_table(player_cards, dealer_cards, True)
+                    dealer_sum = sum(card.value for card in dealer_cards)
+
+                    if dealer_sum > 21:
+                        print("The dealer goes over 21. The table is yours.")
+                        print(f"You collect ${round_bet}.")
+                        player.win_round(round_bet)
+                        dealer_busted = True
+                        dealer_turn = False
+                else:
+                    print(f"The dealer stands at {dealer_sum}.")
+                    dealer_turn = False
+
+            if not dealer_busted:
+                if player_sum > dealer_sum:
+                    print(f"You beat the dealer, {player_sum} to {dealer_sum}.")
+                    print(f"You collect ${round_bet}.")
+                    player.win_round(round_bet)
+                elif player_sum < dealer_sum:
+                    print(f"The dealer wins, {dealer_sum} to {player_sum}.")
+                    print(f"The house takes ${round_bet}.")
+                    player.go_bust(round_bet)
+                else:
+                    print(f"Push. Both hands sit at {player_sum}. Your bet comes back.")
+
+        print(f"You now have ${player.bank} in chips.")
+
         if player.bank == 0:
             print("The dealer gathers the last of your chips. You're out of money.")
             playing = False
+        else:
+            replay_answered = False
+            while not replay_answered:
+                next_round = input("Another hand at the table? yes or no: ").lower()
+
+                if next_round == "yes":
+                    replay_answered = True
+                elif next_round == "no":
+                    print("You step away from the table with your chips.")
+                    playing = False
+                    replay_answered = True
+                else:
+                    print("The dealer pauses with the deck in hand. Say 'yes' or 'no'.")
