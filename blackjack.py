@@ -1,6 +1,15 @@
+"""
+Possible improvements:
+- Add a Hand class to manage a player's cards instead of using plain lists.
+- Move hand-total logic into the Hand class so Ace can count as 11 or 1.
+- Replace repeated sum(card.value for card in cards) calls with hand.value().
+- Avoid blank except blocks; catch specific errors or handle invalid input directly.
+- Optional: reuse the deck across rounds and rebuild it only when cards run low.
+"""
+
 import random
 
-SUITES = ("Hearts", "Diamonds", "Spades", "Clubs")
+SUITS = ("Hearts", "Diamonds", "Spades", "Clubs")
 RANKS = (
     "Two",
     "Three",
@@ -46,7 +55,7 @@ class Card:
 class Deck:
     def __init__(self):
         self.all_cards = []
-        self.all_cards.extend([Card(suite, rank) for suite in SUITES for rank in RANKS])
+        self.all_cards.extend([Card(suite, rank) for suite in SUITS for rank in RANKS])
 
     def shuffle(self):
         random.shuffle(self.all_cards)
