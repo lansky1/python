@@ -161,6 +161,7 @@ clear_output()
 - `.discard()` removes an item from a set without error if it is missing.
 - `.union()`, `.intersection()`, and `.difference()` compare sets.
 - `collections.Counter` counts how many times each value appears.
+- `collections.Counter.most_common()` finds the most frequent elements, returning them as a sorted list of tuples.
 - `collections.defaultdict` gives missing dictionary keys a default value automatically. Useful for grouping and counting.
 - `collections.deque` is useful for queues because adding or removing from both ends is fast.
 - `heapq.heappush()` and `heapq.heappop()` help when repeatedly needing the smallest item.
