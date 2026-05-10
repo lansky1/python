@@ -5,6 +5,14 @@ The game involves two players who draw cards from their respective decks.
 The player with the higher-ranked card wins the round.
 If the cards have the same rank, a "war" occurs,
 and additional cards are drawn to determine the winner.
+
+Other links:
+https://www.reddit.com/r/learnpython/comments/7ay83p/war_card_game/
+https://codereview.stackexchange.com/questions/131174/war-card-game-using-classes
+https://gist.github.com/damianesteban/6896120
+https://lethain.com/war-card-game-in-python/
+https://hectorpefo.github.io/2017-09-13-Card-Wars/
+https://www.wimpyprogrammer.com/the-statistics-of-war-the-card-game
 """
 
 import random

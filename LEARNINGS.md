@@ -222,6 +222,12 @@ Python's built-in types are classes but use lowercase names. This violates PEP 8
 
 - In Python 3, `class Dog:` and `class Dog():` are identical. 
 
+### Class as an object
+- In Python, everything is an object including classes.
+- Classes are instances of the `type` class.
+- `type` is the metaclass responsible for creating classes.
+- `type` is unique because it is both a class and an instance of itself.
+
 ### Permission Scope
 
 Python has no enforced access control. It's convention-based:
