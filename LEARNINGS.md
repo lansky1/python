@@ -118,8 +118,8 @@ clear_output()
 - `min()` and `max()` find the smallest or largest item, and become more powerful with `key=`.
 - `any()` checks if at least one item is true.
 - `all()` checks if every item is true.
-- `sorted()` returns a new sorted list.
-- `.sort()` sorts a list in place.
+- `sorted(iterable, key=lambda x: x, reverse=True/False)` returns a new sorted list.
+- `.sort(key=lambda x: x)` sorts a list in place.
 - `reversed()` loops through a sequence backwards without manually managing indexes.
 - `map()` transforms every item. It is useful when one existing function should be applied to every value.
 - `filter()` keeps only the items that pass a condition.
