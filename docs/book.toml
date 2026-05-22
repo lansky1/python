@@ -1,0 +1,16 @@
+[book]
+title = "Python from the Ground Up"
+authors = []
+description = "A comprehensive Python reference covering fundamentals, standard library, OOP, and idiomatic patterns."
+language = "en"
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/lansky1/python"
+
+[output.html.search]
+enable = true
