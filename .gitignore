@@ -2,3 +2,9 @@ bootcamp/
 
 # mdBook build output
 docs/book/
+
+# MkDocs build output
+site/
+
+# Local docs virtualenv
+.venv-docs/

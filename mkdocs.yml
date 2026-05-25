@@ -1,0 +1,88 @@
+site_name: Python Notes
+site_description: A streamlined knowledge base of Python concepts, standard-library tools, and practice problems.
+site_author: Lavy
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - tables
+  - footnotes
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.caret
+  - pymdownx.tilde
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+
+nav:
+  - Home: index.md
+  - Python:
+      - Numbers: python/01-numbers.md
+      - Strings: python/02-strings.md
+      - Booleans & Conditionals: python/03-booleans-and-conditionals.md
+      - Data Structures: python/04-data-structures.md
+      - Loops & Comprehensions: python/05-loops-and-comprehensions.md
+      - Functions: python/06-functions.md
+      - Decorators: python/07-decorators.md
+      - Generators: python/08-generators.md
+      - Object-Oriented Programming: python/09-oop.md
+      - Error Handling & Testing: python/10-error-handling-and-testing.md
+      - Modules & Scope: python/11-modules-and-scope.md
+      - Debugging & Timing: python/12-debugging-and-timing.md
+      - Regular Expressions: python/13-regex.md
+      - Files & Formats: python/14-files-and-formats.md
+      - Stdlib — Collections: python/15-stdlib-collections.md
+      - Stdlib — OS & Time: python/16-stdlib-os-and-time.md
+      - Web & Comms: python/17-web-and-comms.md
+      - GUI (ipywidgets): python/18-gui-ipywidgets.md
+      - Cheatsheet — Built-ins & Methods: python/cheatsheet/builtins-and-methods.md
+  - Practice:
+      - String Problems: practice/string-problems.md
+      - Numeric Problems: practice/numeric-problems.md
+      - Regex Problems: practice/regex-problems.md
+      - Web Scraping: practice/web-scraping.md
+      - Misc Concepts: practice/misc-concepts.md
+  - Roadmap:
+      - Mastery Checklist: roadmap/mastery-checklist.md
