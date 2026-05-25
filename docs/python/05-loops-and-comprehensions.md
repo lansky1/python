@@ -6,6 +6,21 @@ A `for` loop controls its next value automatically. Use `while` when you need to
 
 Python supports an `else` block on `for` and `while` loops. The `else` block runs only when the loop finishes normally — not when it exits with `break`.
 
+Use `reversed()` to loop backward without changing the original sequence.
+
+```python
+langs = ['c', 'python', 'java', 'c++', 'kotlin', 'rust']
+
+for lang in reversed(langs):
+    print(lang)
+# rust
+# kotlin
+# c++
+# java
+# python
+# c
+```
+
 ### Sliding windows
 
 Use `range(len(value) - window_size + 1)` when checking slices of a fixed size:
@@ -79,3 +94,27 @@ print([[X, Y, Z]
 ```
 
 > List comprehensions are usually clearer than `map()` and `filter()` when the logic is short.
+
+## `any()` and `all()`
+
+`any()` returns `True` if at least one item is truthy. `all()` returns `True` only if every item is truthy.
+
+```python
+checks = [True, True, False]
+
+any(checks)  # True
+all(checks)  # False
+```
+
+They pair well with generator expressions because Python can stop as soon as the result is known.
+
+```python
+tasks = [
+    {'name': 'notes', 'ready': True},
+    {'name': 'tests', 'ready': False},
+    {'name': 'build', 'ready': True},
+]
+
+any(task['ready'] for task in tasks)  # True
+all(task['ready'] for task in tasks)  # False
+```

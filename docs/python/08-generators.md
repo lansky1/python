@@ -84,6 +84,22 @@ gen_expr = (item for item in my_list if item > 3)   # lazy, memory efficient
 list_comp = [item for item in my_list if item > 3]  # eager, builds full list
 ```
 
+```python
+doubled_list = [x * 2 for x in range(10)]
+doubled_generator = (x * 2 for x in range(10))
+
+print(doubled_list)
+# [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+print(doubled_generator)
+# <generator object ...>
+
+print(list(doubled_generator))
+# [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+Printing a generator expression shows the generator object, not its values. The values are produced only when you iterate over it.
+
 References:
 
 - [Understanding generators in Python](https://stackoverflow.com/questions/1756096/understanding-generators-in-python)

@@ -48,6 +48,15 @@ hex(512)   # '0x200'
 bin(128)   # '0b10000000'
 ```
 
+## Numeric Separators
+
+Underscores inside numeric literals improve readability. They do not change the value.
+
+```python
+population = 1_500_000
+print(population)  # 1500000
+```
+
 ## Float Formatting
 
 Format spec: `{value:width.precision f}`

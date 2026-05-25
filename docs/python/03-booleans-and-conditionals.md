@@ -26,6 +26,17 @@ def combo_string(a, b):
 
 In tuple assignment, the **complete right-hand side is evaluated before any left-hand assignment happens**. If one assigned value depends on another new value, store the new value in a temporary first.
 
+```python
+a = 10
+b = 5
+
+a, b = b, a + 2
+
+print(a, b)  # 5 12
+```
+
+The old value of `a` is still available while Python evaluates `b, a + 2`, so `b` becomes `12`, not `7`.
+
 ### The walrus operator `:=`
 
 `:=` assigns a value inside an expression. Use it sparingly — mainly when it avoids repeating the same calculation or lookup:

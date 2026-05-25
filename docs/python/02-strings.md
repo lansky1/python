@@ -56,6 +56,16 @@ def double_char(s):
     return ''.join([c + c for c in s])
 ```
 
+Adjacent string literals are joined by Python before runtime. Parentheses make this useful for splitting one long string over several lines.
+
+```python
+text = (
+    "Lorem ipsum dolor sit amet. "
+    "Lorem ipsum dolor sit amet. "
+    "Lorem ipsum dolor sit amet."
+)
+```
+
 ## String Methods That Avoid Manual Loops
 
 Prefer built-in methods like `.lower()` and `.endswith()` over hand-rolled character-by-character checks.
@@ -79,11 +89,25 @@ s.lower()         # 'hello world'
 s.count('o')      # 2
 s.find('o')       # 4
 s.center(20, 'z') # 'zzzzhello worldzzzzz'  — 20 is total final length
+
+mixed = 'SoMe RaNDoM sTriNg'
+mixed.swapcase()  # 'sOmE rAndOm StRInG'
 ```
 
 ```python
 print('hello\thi')             # hello\thi  (tab kept literal)
 'hello\thi'.expandtabs()       # 'hello   hi'
+```
+
+### Useful string constants
+
+The `string` module provides ready-made groups of characters.
+
+```python
+import string
+
+letters = list(string.ascii_lowercase)
+print(letters[:5])  # ['a', 'b', 'c', 'd', 'e']
 ```
 
 ### Predicate methods

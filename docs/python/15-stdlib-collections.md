@@ -137,6 +137,17 @@ print(sammy.breed)  # 'Husky' — attribute access
 - `dq.pop()` / `dq.popleft()`.
 - Pass `maxlen=` to get a bounded ring buffer.
 
+```python
+from collections import deque
+
+langs = deque(['c', 'python', 'java', 'c++', 'kotlin', 'rust'])
+
+langs.popleft()         # 'c' — takes no argument
+langs.appendleft('go')  # add to the left end
+langs.pop()             # 'rust'
+langs.append('scala')   # add to the right end
+```
+
 ## `heapq`
 
 - `heapq.heappush(heap, item)` and `heapq.heappop(heap)` help when repeatedly needing the smallest item.
@@ -154,6 +165,19 @@ print(sammy.breed)  # 'Husky' — attribute access
 
 - `functools.reduce(func, iterable, initial=...)` — combines an iterable into one final value by repeatedly applying a function.
 - `functools.lru_cache` — remembers function results. Useful for recursive problems with repeated work.
+- `functools.partial(func, *args, **kwargs)` — creates a new callable with some arguments already filled in.
+
+```python
+from functools import partial
+
+def multiply(factor, value):
+	return factor * value
+
+
+times_three = partial(multiply, 3)
+
+print(times_three(5))  # 15
+```
 
 ## `operator`
 

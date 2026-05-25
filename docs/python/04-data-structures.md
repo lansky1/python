@@ -31,6 +31,33 @@ l.sort()            # in place
 
 `sorted(iterable, key=..., reverse=...)` returns a new sorted list without mutating the original.
 
+### Reference vs shallow copy
+
+Assigning one list variable to another creates another reference to the same list.
+
+```python
+numbers = [1, 2, 3, 4, 5]
+alias = numbers
+
+alias[4] = 7
+
+print(numbers)                  # [1, 2, 3, 4, 7]
+print(id(numbers) == id(alias)) # True
+```
+
+Use slicing or `.copy()` when you need a separate shallow copy.
+
+```python
+numbers = [1, 2, 3, 4, 5]
+copy_one = numbers[:]
+copy_two = numbers.copy()
+
+copy_one[0] = 99
+
+print(numbers)   # [1, 2, 3, 4, 5]
+print(copy_one)  # [99, 2, 3, 4, 5]
+```
+
 ## Dictionaries
 
 - Mutable.
@@ -41,6 +68,38 @@ l.sort()            # in place
 ```python
 d = {1: 'hello', 2: 'bye'}
 print(type(d[1]).__name__)   # 'str'
+```
+
+### Safe lookups and defaults
+
+Use `.get()` when a missing key should fall back to a default value.
+
+```python
+item = {'item': 'football', 'price': 10.00}
+
+count = item.get('count', 0)
+print(count)  # 0
+```
+
+Use `.setdefault()` when you also want to store the default on the dictionary.
+
+```python
+item = {'item': 'football', 'price': 10.00}
+
+count = item.setdefault('count', 0)
+print(count)  # 0
+print(item)   # {'item': 'football', 'price': 10.0, 'count': 0}
+```
+
+```python
+text = "It's the first of April. It's still cold in the UK."
+counts = {}
+
+for word in text.split():
+    counts.setdefault(word, 0)
+    counts[word] += 1
+
+print(counts["It's"])  # 2
 ```
 
 ### Dictionary comprehension
@@ -76,10 +135,65 @@ for k in d.values():
 d.items()   # dict_items([('k1', 1), ('k2', 2)])
 ```
 
+### Merging dictionaries
+
+When keys overlap, the right-hand dictionary wins.
+
+```python
+d1 = {'name': 'Alex', 'age': 25}
+d2 = {'name': 'Alex', 'city': 'New York'}
+
+print(d1 | d2)        # {'name': 'Alex', 'age': 25, 'city': 'New York'}
+print({**d1, **d2})   # {'name': 'Alex', 'age': 25, 'city': 'New York'}
+```
+
+The `|` merge operator is available in Python 3.9+. The `**` unpacking form works in older Python 3 versions too.
+
+### Sorting dictionary items
+
+`sorted()` returns a list of key/value tuples. Choose the sort field with `key=`.
+
+```python
+scores = {1: 3, 4: 2, 5: 1, 2: 9}
+
+print(sorted(scores.items(), key=lambda pair: pair[0]))
+# [(1, 3), (2, 9), (4, 2), (5, 1)]
+
+print(sorted(scores.items(), key=lambda pair: pair[1]))
+# [(5, 1), (4, 2), (1, 3), (2, 9)]
+```
+
 ## Tuples
 
 - Immutable ordered sequence.
 - Hashable when their contents are hashable, so they can be dict keys or set elements.
+
+### Tuple unpacking
+
+Tuple assignment works with any sequence. A starred target collects the middle values into a list.
+
+```python
+first, *rest, last = [42, 771, 256, 1337]
+
+print(first)  # 42
+print(rest)   # [771, 256]
+print(last)   # 1337
+```
+
+### Tuple size
+
+Tuples usually use less memory than lists because they are immutable and do not need extra capacity for growth.
+
+```python
+import sys
+
+as_list = [1, 2, 3, 4, 5]
+as_tuple = (1, 2, 3, 4, 5)
+
+print(sys.getsizeof(as_list))
+print(sys.getsizeof(as_tuple))
+# Exact byte counts vary by Python version and platform.
+```
 
 ## Sets
 

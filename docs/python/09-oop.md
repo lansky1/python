@@ -199,3 +199,25 @@ print(b)        # calls __str__
 print(len(b))   # calls __len__
 del b           # calls __del__
 ```
+
+### Callable Instances with `__call__`
+
+Defining `__call__` lets an instance behave like a function while still carrying its own state.
+
+```python
+class Multiplier:
+    def __init__(self, factor):
+        self.factor = factor
+
+    def __call__(self, value):
+        return value * self.factor
+
+
+times_three = Multiplier(3)
+
+print(times_three(5))  # 15
+print([times_three(number) for number in [1, 2, 3, 4]])
+# [3, 6, 9, 12]
+```
+
+Use a callable object when the behavior has meaningful state. Use `functools.partial` when you only need to pre-fill a few function arguments.
