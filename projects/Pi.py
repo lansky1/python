@@ -10,7 +10,7 @@
 # Gauss-Legendre
 # Chudnovsky algorithm
 
-# There is a problem with float as well, it has a fixed 64 bit precision.
+# There is a problem with float as well, it has a fixed 64 bit precision. 15-17 significant decimal digits
 # We'll use decimal.Decimal and decimal.getcontext().prec
 """
 

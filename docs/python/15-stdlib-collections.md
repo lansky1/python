@@ -129,6 +129,27 @@ print(sammy.breed)  # 'Husky' — attribute access
 
 `namedtuple` keeps tuple efficiency but adds readable field access. For richer types, prefer `dataclasses.dataclass`.
 
+namedtuple parses the string internally! It splits 'x,y' on commas (or spaces) and extracts the field names.
+
+So these all create the same thing:
+
+```python
+Point = namedtuple('Point', 'x,y')       # comma-separated string
+Point = namedtuple('Point', 'x y')       # space-separated string
+Point = namedtuple('Point', ['x', 'y'])  # list of names
+```
+
+The first parameter to `namedtuple()` is the **typename** (class name as a string), not the variable name. By convention they match for readability, but they don't have to:
+
+```python
+DogBreed = namedtuple('Dog', ['age', 'breed', 'name'])
+sammy = DogBreed(5, 'Husky', 'Sam')
+print(sammy)              # Dog(age=5, breed='Husky', name='Sam')
+print(type(sammy).__name__)  # 'Dog' — from the typename, not the variable
+```
+
+The typename determines the class's `__name__` (used in repr and error messages), while the variable is just what you call it in your code.
+
 ## `deque`
 
 `collections.deque` is useful for queues because adding or removing from both ends is O(1):

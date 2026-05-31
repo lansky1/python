@@ -89,6 +89,8 @@ s.lower()         # 'hello world'
 s.count('o')      # 2
 s.find('o')       # 4
 s.center(20, 'z') # 'zzzzhello worldzzzzz'  — 20 is total final length
+s.rjust(20)       # '         hello world'
+s.ljust(20)       # 'hello world         '
 
 mixed = 'SoMe RaNDoM sTriNg'
 mixed.swapcase()  # 'sOmE rAndOm StRInG'
