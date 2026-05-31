@@ -2,7 +2,16 @@
 # Threads
 # Individual Joins
 # Post iteration Join
-# Daemon
+
+"""
+Daemon
+This child thread is background work.
+If the main program finishes, do not wait for this thread.
+
+daemon=True + no join  → background thread may be cut off
+daemon=True + join     → main waits, so daemon does not matter much
+daemon=False + no join → Python still waits before exiting
+"""
 
 import time
 import threading
@@ -23,7 +32,9 @@ def main():
     current_threads = []
     for i in range(5):
         # args param requires a tuple
-        t = threading.Thread(target=calculate_sum_square, args=((i + 1) * 100000,))
+        t = threading.Thread(
+            target=calculate_sum_square, args=((i + 1) * 100000,), daemon=True
+        )
         # main thread creates a child thread and hands off the work, will not wait for completion.
         t.start()
         # t.join()  # Here it ensures the current thread only executes, making it sequential again
